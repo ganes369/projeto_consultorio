@@ -1,9 +1,11 @@
 const { Router } = require('express')
-const { createPatient } = require('../controllers')
+const { patientCreate, patientListCpf, patientUpdate } = require('../controllers')
 const routes = Router()
 
 
-routes.post('/cadastrarPaciente', createPatient)
+routes.post('/patientCreate', patientCreate)
+routes.get('/patientListCpf', patientListCpf)
+routes.put('/patientUpdate/:id', patientUpdate)
 
 
 module.exports = routes

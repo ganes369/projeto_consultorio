@@ -1,4 +1,6 @@
-const { createPatient } = require('./patient/Create')
+const { patientCreate } = require('./patient/Create')
+const { patientListCpf } = require('./patient/List')
+const { patientUpdate } = require('./patient/Update')
 
 
 
@@ -6,4 +8,4 @@ const { createPatient } = require('./patient/Create')
 
 
 
-module.exports = { createPatient }
+module.exports = { patientCreate, patientListCpf, patientUpdate }
