@@ -17,7 +17,7 @@ const patientListCpf = async (req, res) => {
             .where({ cpf })
             .first()
 
-        console.log(searchPatient)
+
         if (!searchPatient) {
             return res.status(404).json({ mensagem: 'Paciente não encontrado' })
         }

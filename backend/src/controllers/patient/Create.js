@@ -1,10 +1,10 @@
 const knex = require('../../models/connection')
 
 const patientCreate = async (req, res) => {
-    const { nome_completo, rg, cpf, convenio, celular } = req.body
+    const { nome, telefone, endereco, cidade, cpf, rg, convenio, codigo_carteira_saude,
+        medico_principal, data_nascimento } = req.body
 
     try {
-
 
         const searchPatientCpf = await knex('pacientes')
             .where({ cpf })
@@ -26,11 +26,16 @@ const patientCreate = async (req, res) => {
 
         const createPatient = await knex('pacientes')
             .insert({
-                nome_completo,
-                rg,
+                nome,
+                telefone,
+                endereco,
+                cidade,
                 cpf,
+                rg,
                 convenio,
-                celular
+                codigo_carteira_saude,
+                medico_principal,
+                data_nascimento
             })
             .returning('*')
 

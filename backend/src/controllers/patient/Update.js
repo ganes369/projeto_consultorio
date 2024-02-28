@@ -1,7 +1,9 @@
 const knex = require("../../models/connection")
 
 const patientUpdate = async (req, res) => {
-    const { nome_completo, rg, cpf, convenio, celular } = req.body
+    const { nome, telefone, endereco, cidade, cpf, rg, convenio, codigo_carteira_saude,
+        medico_principal, data_nascimento } = req.body
+
     const { id } = req.params
 
     try {
@@ -43,11 +45,16 @@ const patientUpdate = async (req, res) => {
 
         const updadePacient = await knex('pacientes')
             .update({
-                nome_completo,
-                rg,
+                nome,
+                telefone,
+                endereco,
+                cidade,
                 cpf,
+                rg,
                 convenio,
-                celular
+                codigo_carteira_saude,
+                medico_principal,
+                data_nascimento
             })
             .where({ id })
             .returning('*')
