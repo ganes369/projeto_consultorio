@@ -8,7 +8,7 @@ const healthInsuranceList = async (req, res) => {
 
         if (!nome) {
             const searchHealthInsurance = await knex('convenios')
-                .orderBy('id')
+                .orderBy('nome')
 
             return res.json(searchHealthInsurance)
         }
