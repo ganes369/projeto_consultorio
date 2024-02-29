@@ -12,6 +12,12 @@ const doctorCreate = async (req, res) => {
   } = req.body;
 
   try {
+    const list = await knex("medicos").whereILike("conselho", conselho);
+
+    if (list.length) {
+      return res.status(400).json({ mensagem: "O conselho já cadastrado" });
+    }
+
     const create = await knex("medicos")
       .insert({
         nome_completo,
@@ -23,6 +29,7 @@ const doctorCreate = async (req, res) => {
         obs,
       })
       .returning("*");
+
     return res.status(201).json(create);
   } catch (error) {
     return res.status(500).json({ mensagem: error.message });
