@@ -12,7 +12,6 @@ const doctorCreate = async (req, res) => {
   } = req.body;
 
   try {
-    console.log();
     const create = await knex("medicos")
       .insert({
         nome_completo,
