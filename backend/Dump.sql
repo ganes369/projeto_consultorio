@@ -20,3 +20,14 @@ create table pacientes (
   Usuario integer not null,
   Senha text not null
   )
+
+  create table medicos (
+  id serial primary key,
+  nome_completo text not null,
+  telefone1 text not null, 
+  telefone2 text, 
+  telefone3 text, 
+  numero_sala integer not null unique,
+  conselho text,
+  obs text
+  )
