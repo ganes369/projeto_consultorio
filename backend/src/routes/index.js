@@ -17,5 +17,6 @@ routes.put("/patientUpdate/:id", patientUpdate);
 routes.post("/healthInsuranceCreate", healthInsuranceCreate);
 routes.get("/healthInsuranceList", healthInsuranceList);
 routes.put("/healthInsuranceUpdate/:id", healthInsuranceUpdate);
+
 routes.post("/doctor/create", doctorCreate);
 module.exports = routes;
