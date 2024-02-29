@@ -7,7 +7,7 @@ const healthInsuranceCreate = async (req, res) => {
 
 
         const searchHealthInsurance = await knex('convenios')
-            .where({ nome })
+            .whereILike('nome', nome)
             .first()
 
         if (searchHealthInsurance) {

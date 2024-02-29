@@ -1,5 +1,6 @@
 const { Router } = require('express')
-const { patientCreate, patientListCpf, patientUpdate, healthInsuranceCreate, healthInsuranceList } = require('../controllers')
+const { patientCreate, patientListCpf, patientUpdate, healthInsuranceCreate,
+    healthInsuranceList, healthInsuranceUpdate } = require('../controllers')
 const routes = Router()
 
 
@@ -9,5 +10,6 @@ routes.put('/patientUpdate/:id', patientUpdate)
 
 routes.post('/healthInsuranceCreate', healthInsuranceCreate)
 routes.get('/healthInsuranceList', healthInsuranceList)
+routes.put('/healthInsuranceUpdate', healthInsuranceUpdate)
 
 module.exports = routes
