@@ -15,7 +15,7 @@ create table pacientes (
   create table convenios (
   id serial primary key,
   Nome text not null,
-  Tipo_Convenio text not null,
+  Convenio text not null,
   Codigo_Referenciado text,
   Usuario integer not null,
   Senha text not null

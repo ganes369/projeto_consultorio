@@ -8,6 +8,13 @@ const patientUpdate = async (req, res) => {
 
     try {
 
+        if (!nome && !telefone && !endereco && !cidade && !cpf && !rg && !convenio &&
+            !codigo_carteira_saude && !medico_principal && !data_nascimento) {
+            return res.status(400).json({
+                mensagem: "Informe ao menos um campo para ser atualizado"
+            })
+        }
+
         const searchPatient = await knex('pacientes')
             .where({ id })
             .first()
