@@ -1,13 +1,18 @@
 const knex = require('../../models/connection')
 
 const healthInsuranceUpdate = async (req, res) => {
-    const { nome, convenio, codigo_referenciado, usuario, senha } = req.body
+    const { convenio, valor_consulta, tipo_cobranca, profissional_1, profissional_2,
+        profissional_3, profissional_4, profissional_5, profissional_6, profissional_7,
+        codigo_referenciado, usuario, senha } = req.body
     const { id } = req.params
 
     try {
 
 
-        if (!nome && !convenio && !codigo_referenciado && !usuario && !senha) {
+        if (convenio && valor_consulta && tipo_cobranca && profissional_1 && profissional_2 &&
+            profissional_3 && profissional_4 && profissional_5 && profissional_6 &&
+            profissional_7 && codigo_referenciado && usuario && senha) {
+
             return res.status(400).json({
                 mensagem: "Informe ao menos um campo para ser atualizado"
             })
@@ -24,12 +29,18 @@ const healthInsuranceUpdate = async (req, res) => {
         }
 
 
-
-
         const updateHealthInsurance = await knex('convenios')
             .update({
-                nome,
                 convenio,
+                valor_consulta,
+                tipo_cobranca,
+                profissional_1,
+                profissional_2,
+                profissional_3,
+                profissional_4,
+                profissional_5,
+                profissional_6,
+                profissional_7,
                 codigo_referenciado,
                 usuario,
                 senha
@@ -43,7 +54,6 @@ const healthInsuranceUpdate = async (req, res) => {
         return res.status(500).json({ mensagem: error.message })
     }
 }
-
 
 
 module.exports = { healthInsuranceUpdate }
