@@ -1,4 +1,4 @@
-const validate = require("cpf-rg-validator")
+const { validate } = require("validator-cpf-cnpj")
 const knex = require("../../models/connection")
 
 const patientUpdate = async (req, res) => {
@@ -64,15 +64,6 @@ const patientUpdate = async (req, res) => {
         }
 
         if (rg) {
-
-            const rgvalidate = validate.rg(rg)
-
-            if (!rgvalidate) {
-                return res.status(400).json({
-                    mensagem:
-                        "insira um rg válido"
-                })
-            }
 
             const searchPatientRg = await knex('pacientes')
                 .where({ rg })
