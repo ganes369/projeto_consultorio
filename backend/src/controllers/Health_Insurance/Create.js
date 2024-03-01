@@ -1,13 +1,15 @@
 const knex = require('../../models/connection')
 
 const healthInsuranceCreate = async (req, res) => {
-    const { nome, tipo_convenio, codigo_referenciado, usuario, senha } = req.body
+    const { convenio, valor_consulta, tipo_cobranca, profissional_1, profissional_2,
+        profissional_3, profissional_4, profissional_5, profissional_6, profissional_7,
+        codigo_referenciado, usuario, senha } = req.body
+
 
     try {
 
-
         const searchHealthInsurance = await knex('convenios')
-            .whereILike('nome', nome)
+            .whereILike('convenio', convenio)
             .first()
 
         if (searchHealthInsurance) {
@@ -17,8 +19,16 @@ const healthInsuranceCreate = async (req, res) => {
 
         const createHealthInsurance = await knex('convenios')
             .insert({
-                nome,
-                tipo_convenio,
+                convenio,
+                valor_consulta,
+                tipo_cobranca,
+                profissional_1,
+                profissional_2,
+                profissional_3,
+                profissional_4,
+                profissional_5,
+                profissional_6,
+                profissional_7,
                 codigo_referenciado,
                 usuario,
                 senha

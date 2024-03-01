@@ -8,7 +8,7 @@ const patientListCpf = async (req, res) => {
 
         if (!cpf) {
             const searchPatient = await knex('pacientes')
-                .orderBy('id')
+                .orderBy('nome')
 
             return res.json(searchPatient)
         }
