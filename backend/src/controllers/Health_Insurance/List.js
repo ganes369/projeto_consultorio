@@ -2,19 +2,19 @@ const knex = require("../../models/connection")
 
 
 const healthInsuranceList = async (req, res) => {
-    const { nome } = req.body
+    const { convenio } = req.body
 
     try {
 
-        if (!nome) {
+        if (!convenio) {
             const searchHealthInsurance = await knex('convenios')
-                .orderBy('nome')
+                .orderBy('convenio')
 
             return res.json(searchHealthInsurance)
         }
 
         const searchHealthInsurance = await knex('convenios')
-            .whereILike('nome', nome)
+            .whereILike('convenio', convenio)
             .first()
 
         if (!searchHealthInsurance) {
