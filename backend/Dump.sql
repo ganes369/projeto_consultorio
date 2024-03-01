@@ -28,6 +28,6 @@ create table pacientes (
   telefone2 text, 
   telefone3 text, 
   numero_sala integer not null unique,
-  conselho text,
+  conselho text not null unique,
   obs text
   )
