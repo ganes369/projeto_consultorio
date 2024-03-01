@@ -7,8 +7,6 @@ const { healthInsuranceUpdate } = require('./Health_Insurance/Update')
 
 
 
-
-
 module.exports = {
     patientCreate,
     patientListCpf,
