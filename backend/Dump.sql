@@ -39,3 +39,11 @@ create table pacientes (
   conselho text not null unique,
   obs text
   )
+
+  create table controle_receituarios (
+  id serial primary key,
+  data varchar(10) not null,
+  medico text not null,
+  receituario varchar(40),
+  mes varchar(10) not null
+  )
