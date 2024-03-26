@@ -4,6 +4,7 @@ const { patientUpdate } = require('./Patient/Update')
 const { healthInsuranceCreate } = require('./Health_Insurance/Create')
 const { healthInsuranceList } = require('./Health_Insurance/List')
 const { healthInsuranceUpdate } = require('./Health_Insurance/Update')
+const { prescriptionCreate } = require('./prescription/Create')
 
 
 
@@ -13,5 +14,6 @@ module.exports = {
     patientUpdate,
     healthInsuranceCreate,
     healthInsuranceList,
-    healthInsuranceUpdate
+    healthInsuranceUpdate,
+    prescriptionCreate
 }
